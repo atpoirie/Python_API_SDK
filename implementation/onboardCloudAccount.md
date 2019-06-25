@@ -27,9 +27,8 @@ the account - Attach the admin role to the account
 
   - **dome9ApiKeyID** (String): Dome9 API key ID
   - **dome9ApiKeySecret** (String): Dome9 API Key secret
-  - **cloudVendorType** (String): type of cloud account vendor: *aws,
-    azure*
-  - **awsRoleArn** (String): the ARN of the Dome9-Connect role in your
+  - **cloudVendorType** (String): type of cloud account vendor: *aws*, or *azure*
+  - **awsRoleArn** (String): the ARN of the *Dome9-Connect* role in your
     AWS account
   - **awsRoleExternalID** (String): the external ID value used to create
     the role in your AWS account
@@ -39,11 +38,11 @@ the account - Attach the admin role to the account
     Security Groups in the account to *Full-Protection* in the course of
     onboarding, or False to leave the Security Groups in *Read-Only*
     mode; default is False
-  - **azureSubscriptionID** (String, optional): Azure subscriptionID
+  - **azureSubscriptionID** (String, optional): Azure subscription ID
   - **azureActiveDirectoryID** (String, optional): Azure
-    azureActiveDirectoryID\\tenantID
-  - **azureApplicationID** (String, optional): Azure azureApplicationID
-  - **azureSecretKey** (String, optional): Azure azureSecretKey
+    Active Directory ID\\tenant ID
+  - **azureApplicationID** (String, optional): Azure Application ID
+  - **azureSecretKey** (String, optional): Azure Secret Key
   - **azureOperationMode** (String, optional): Azure operation mode,
     *Read* or *Manage*; default is Read
   - **dome9OuID** (String, optional): Organization Unit ID to which the
@@ -51,8 +50,7 @@ the account - Attach the admin role to the account
     [Organization Unit
     method](https://api-v2-docs.dome9.com/#Dome9-API-OrganizationalUnit)
     in the Dome9 REST API)
-  - **dome9AccountName** (String, optional): accountName account display
-    name on Dome9 console, default is *account-randomString*
+  - **dome9CloudAccountName** (String, optional): account name as it will appear on the Dome9 console, default is *account-randomString*
   - **dome9AdminRoleID** (String, optional): Dome9 admin role ID to
     attach to the account (to obtain this ID, use the [Role
     method](https://api-v2-docs.dome9.com/#Dome9-API-Role) in the Dome9
@@ -69,7 +67,7 @@ the account - Attach the admin role to the account
 `onboardCloudAccount.py --dome9ApiKeyID sdfsdfssdf --dome9ApiKeySecret
 sdfsdfssdf --cloudVendorType aws --awsRoleArn
 arn:aws:iam::111111111:role/Dome9-Connect --awsRoleExternalID sdfsdfsdff
---dome9OuID e21b3e8b-e02f-46df-bd70-8ce65ca8a3a5 --dome9AccountName
+--dome9OuID e21b3e8b-e02f-46df-bd70-8ce65ca8a3a5 --dome9CloudAccountName
 production --dome9AdminRoleID 118187 --dome9ViewRoleID 118203`
 
 **onboard an Azure account:**
@@ -78,6 +76,6 @@ production --dome9AdminRoleID 118187 --dome9ViewRoleID 118203`
 sdfsdfssdf --cloudVendorType azure --azureSubscriptionID sdfsdfsdfsdfsd
 --azureActiveDirectoryID sdfsdsdfsdsdfsd --azureApplicationID
 sfsdfsdfsfdsdf --azureSecretKey sdfsfsfsfd
---dome9OuID 92f9a334-bf29-48a5-9cf8-66a10efe51e6 --dome9AccountName
+--dome9OuID 92f9a334-bf29-48a5-9cf8-66a10efe51e6 --dome9CloudAccountName
 production --dome9AdminRoleID 118881 --dome9ViewRoleID 118901
 --azureOperationMode Manage`
