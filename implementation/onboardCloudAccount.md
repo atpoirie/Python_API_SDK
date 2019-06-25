@@ -17,7 +17,7 @@ the account - Attach the admin role to the account
 
 ## Prerequisites
 
-  - Dome9 APIkeyID and secret
+  - Dome9 API Key ID and secret (see [here](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk144514&partition=General&product=CloudGuard) for details how to generate these using the Dome9 Web app)
   - Python 2.7 or later
   - Python modules:
       - dome9ApiV2Py
