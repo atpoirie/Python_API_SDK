@@ -9,9 +9,13 @@
 
 # What it does
 
-This script does the following: - Onboard an Aws or Azure account to
-Dome9 - Attach the onboarded account to an OU - Attach the view role to
-the account - Attach the admin role to the account
+This script does the following:
+- Onboard an AWS or Azure account to
+Dome9
+- Attach the onboarded account to an OU
+- Attach the view role to
+the account
+- Attach the admin role to the account
 
 # Setup
 
@@ -28,23 +32,7 @@ the account - Attach the admin role to the account
   - **dome9ApiKeyID** (String): Dome9 API key ID
   - **dome9ApiKeySecret** (String): Dome9 API Key secret
   - **cloudVendorType** (String): type of cloud account vendor: *aws*, or *azure*
-  - **awsRoleArn** (String): the ARN of the *Dome9-Connect* role in your
     AWS account
-  - **awsRoleExternalID** (String): the external ID value used to create
-    the role in your AWS account
-  - **awsAllowReadOnly** (String, optional): set to True for
-    *Read-Only*, and False for *Full Protection*; default is True
-  - **awsFullProtection** (String, optional): set to True to set the
-    Security Groups in the account to *Full-Protection* in the course of
-    onboarding, or False to leave the Security Groups in *Read-Only*
-    mode; default is False
-  - **azureSubscriptionID** (String, optional): Azure subscription ID
-  - **azureActiveDirectoryID** (String, optional): Azure
-    Active Directory ID\\tenant ID
-  - **azureApplicationID** (String, optional): Azure Application ID
-  - **azureSecretKey** (String, optional): Azure Secret Key
-  - **azureOperationMode** (String, optional): Azure operation mode,
-    *Read* or *Manage*; default is Read
   - **dome9OuID** (String, optional): Organization Unit ID to which the
     cloud account will be attached (to obtain this ID, use the
     [Organization Unit
@@ -59,10 +47,33 @@ the account - Attach the admin role to the account
     attach to the account (to obtain this ID, use the [Role
     method](https://api-v2-docs.dome9.com/#Dome9-API-Role) in the Dome9
     REST API)
+	
+	For AWS accounts use these parameters:
+	
+  - **awsRoleArn** (String): the ARN of the *Dome9-Connect* role in your
+  - **awsRoleExternalID** (String): the external ID value used to create
+    the role in your AWS account
+  - **awsAllowReadOnly** (String, optional): set to True to onboard the account to 
+    *Read-Only* mode, and False to onboard it to  *Full Protection* mode; default is True (*Read-Only*)
+  - **awsFullProtection** (String, optional): set to True to set the
+    Security Groups in the account to *Full-Protection* in the course of
+    onboarding, or False to leave the Security Groups in *Read-Only*
+    mode; default is False (*Read-Only*)
+	
+	For Azure accounts, use these:
+	
+  - **azureSubscriptionID** (String): Azure subscription ID
+  - **azureActiveDirectoryID** (String): Azure
+    Active Directory ID\\tenant ID
+  - **azureApplicationID** (String): Azure Application ID
+  - **azureSecretKey** (String): Azure Secret Key
+  - **azureOperationMode** (String): Azure operation mode,
+    *Read* or *Manage*; default is Read
+	
 
 # Usage examples
 
-**onboard an AWS account:**
+**Onboard an AWS account to Read-Only mode, with Admin role and OU:**
 
 `onboardCloudAccount.py --dome9ApiKeyID sdfsdfssdf --dome9ApiKeySecret
 sdfsdfssdf --cloudVendorType aws --awsRoleArn
@@ -70,7 +81,7 @@ arn:aws:iam::111111111:role/Dome9-Connect --awsRoleExternalID sdfsdfsdff
 --dome9OuID e21b3e8b-e02f-46df-bd70-8ce65ca8a3a5 --dome9CloudAccountName
 production --dome9AdminRoleID 118187 --dome9ViewRoleID 118203`
 
-**onboard an Azure account:**
+**Onboard an Azure account to Managed mode, with Admin role and OU:**
 
 `onboardCloudAcoount.py --dome9ApiKeyID ddsfsdfsdf --dome9ApiKeySecret
 sdfsdfssdf --cloudVendorType azure --azureSubscriptionID sdfsdfsdfsdfsd
